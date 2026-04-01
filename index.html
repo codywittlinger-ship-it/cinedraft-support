@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineDraft - Support</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #e5e5e5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            max-width: 640px;
+            width: 100%;
+            padding: 60px 24px;
+        }
+        .logo {
+            font-size: 48px;
+            margin-bottom: 8px;
+        }
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+        .tagline {
+            color: #888;
+            font-size: 16px;
+            margin-bottom: 48px;
+        }
+        h2 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 16px;
+            margin-top: 40px;
+        }
+        h2:first-of-type { margin-top: 0; }
+        .card {
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+        }
+        .card p {
+            line-height: 1.6;
+            color: #ccc;
+        }
+        a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+        a:hover { text-decoration: underline; }
+        .contact-btn {
+            display: inline-block;
+            background: #60a5fa;
+            color: #000;
+            font-weight: 600;
+            padding: 12px 28px;
+            border-radius: 8px;
+            margin-top: 12px;
+            transition: background 0.2s;
+        }
+        .contact-btn:hover {
+            background: #93c5fd;
+            text-decoration: none;
+        }
+        .faq dt {
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+        .faq dd {
+            color: #aaa;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .faq dd:last-child { margin-bottom: 0; }
+        footer {
+            margin-top: 48px;
+            color: #555;
+            font-size: 14px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">🎬</div>
+        <h1>CineDraft</h1>
+        <p class="tagline">Fantasy film leagues with friends</p>
+
+        <h2>Contact Us</h2>
+        <div class="card">
+            <p>Have a question, found a bug, or want to share feedback? We'd love to hear from you.</p>
+            <a class="contact-btn" href="mailto:cinedraftapp@gmail.com">Email Support</a>
+        </div>
+
+        <h2>FAQ</h2>
+        <div class="card">
+            <dl class="faq">
+                <dt>What is CineDraft?</dt>
+                <dd>CineDraft is a fantasy film league app where you draft movies and compete with friends based on real critic and audience ratings from Letterboxd, IMDb, and TMDB.</dd>
+
+                <dt>How do I create or join a league?</dt>
+                <dd>After signing up, tap "Create League" to start a new league and invite friends via a share link, or tap "Join League" and enter an invite code.</dd>
+
+                <dt>How is scoring calculated?</dt>
+                <dd>Movie scores are a weighted average of Letterboxd (60%), IMDb (20%), and TMDB (20%) ratings, normalized to a 100-point scale.</dd>
+
+                <dt>How do I report a bug?</dt>
+                <dd>Email us at <a href="mailto:cinedraftapp@gmail.com">cinedraftapp@gmail.com</a> with a description of the issue and any screenshots if possible.</dd>
+
+                <dt>Is CineDraft free?</dt>
+                <dd>Yes! CineDraft is free to download and play.</dd>
+            </dl>
+        </div>
+
+        <footer>&copy; 2026 Cody Wittlinger. All rights reserved.</footer>
+    </div>
+</body>
+</html>
