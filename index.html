@@ -16,32 +16,14 @@
             align-items: center;
         }
         .container {
-            max-width: 640px;
+            max-width: 700px;
             width: 100%;
             padding: 60px 24px;
         }
-        .logo {
-            font-size: 48px;
-            margin-bottom: 8px;
-        }
-        h1 {
-            font-size: 32px;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 4px;
-        }
-        .tagline {
-            color: #888;
-            font-size: 16px;
-            margin-bottom: 48px;
-        }
-        h2 {
-            font-size: 20px;
-            font-weight: 600;
-            color: #fff;
-            margin-bottom: 16px;
-            margin-top: 40px;
-        }
+        .logo { font-size: 48px; margin-bottom: 8px; }
+        h1 { font-size: 32px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+        .tagline { color: #888; font-size: 16px; margin-bottom: 48px; }
+        h2 { font-size: 20px; font-weight: 600; color: #fff; margin-bottom: 16px; margin-top: 40px; }
         h2:first-of-type { margin-top: 0; }
         .card {
             background: #1a1a1a;
@@ -50,18 +32,46 @@
             padding: 24px;
             margin-bottom: 16px;
         }
-        .card p {
+        .card p { line-height: 1.6; color: #ccc; }
+        a { color: #60a5fa; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .tip-box {
+            background: #1a1a0a;
+            border: 1px solid #d4a84333;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 24px;
+            color: #d4a843;
+            font-size: 15px;
             line-height: 1.6;
-            color: #ccc;
         }
-        a {
-            color: #60a5fa;
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 16px;
+        }
+        @media (max-width: 500px) { .contact-grid { grid-template-columns: 1fr; } }
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 10px;
+            padding: 14px 18px;
+            color: #fff;
+            font-weight: 600;
+            font-size: 14px;
+            transition: border-color 0.2s;
             text-decoration: none;
         }
-        a:hover { text-decoration: underline; }
-        .contact-btn {
+        .contact-btn:hover { border-color: #d4a843; text-decoration: none; }
+        .contact-btn span { font-size: 20px; }
+        .contact-btn small { display: block; font-weight: 400; color: #888; font-size: 12px; margin-top: 2px; }
+        .contact-primary {
             display: inline-block;
-            background: #60a5fa;
+            background: #d4a843;
             color: #000;
             font-weight: 600;
             padding: 12px 28px;
@@ -69,62 +79,219 @@
             margin-top: 12px;
             transition: background 0.2s;
         }
-        .contact-btn:hover {
-            background: #93c5fd;
-            text-decoration: none;
-        }
-        .faq dt {
-            font-weight: 600;
+        .contact-primary:hover { background: #e0bc6a; text-decoration: none; }
+        .faq-category { margin-bottom: 8px; }
+        .faq-category-btn {
+            width: 100%;
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 10px;
+            padding: 16px 20px;
             color: #fff;
-            margin-bottom: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: border-color 0.2s;
         }
-        .faq dd {
-            color: #aaa;
-            line-height: 1.6;
-            margin-bottom: 20px;
+        .faq-category-btn:hover { border-color: #d4a843; }
+        .faq-category-btn .arrow { color: #888; font-size: 14px; transition: transform 0.2s; }
+        .faq-category.open .faq-category-btn .arrow { transform: rotate(90deg); }
+        .faq-category.open .faq-category-btn { border-color: #d4a843; border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+        .faq-items {
+            display: none;
+            background: #141414;
+            border: 1px solid #2a2a2a;
+            border-top: none;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
         }
-        .faq dd:last-child { margin-bottom: 0; }
-        footer {
-            margin-top: 48px;
-            color: #555;
+        .faq-category.open .faq-items { display: block; }
+        .faq-item { border-bottom: 1px solid #1f1f1f; }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-q {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 16px 20px;
+            color: #ccc;
+            font-size: 15px;
+            font-weight: 500;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-q:hover { color: #fff; }
+        .faq-q .arrow { color: #666; font-size: 12px; transition: transform 0.2s; }
+        .faq-item.open .faq-q .arrow { transform: rotate(90deg); }
+        .faq-a {
+            display: none;
+            padding: 0 20px 16px 20px;
+            color: #999;
             font-size: 14px;
-            text-align: center;
+            line-height: 1.7;
         }
+        .faq-item.open .faq-a { display: block; }
+        footer { margin-top: 48px; color: #555; font-size: 14px; text-align: center; }
+        .links { margin-top: 32px; }
+        .links a { margin-right: 20px; font-size: 14px; color: #888; }
+        .links a:hover { color: #d4a843; }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="logo">🎬</div>
-        <h1>CineDraft</h1>
+        <h1>CineDraft Support</h1>
         <p class="tagline">Fantasy film leagues with friends</p>
 
         <h2>Contact Us</h2>
-        <div class="card">
-            <p>Have a question, found a bug, or want to share feedback? We'd love to hear from you.</p>
-            <a class="contact-btn" href="mailto:cinedraftapp@gmail.com">Email Support</a>
+
+        <div class="tip-box">
+            For the fastest response, use the <strong>Submit a Request</strong> button inside the app (Settings &gt; Support). It goes directly to our support queue.
         </div>
 
-        <h2>FAQ</h2>
         <div class="card">
-            <dl class="faq">
-                <dt>What is CineDraft?</dt>
-                <dd>CineDraft is a fantasy film league app where you draft movies and compete with friends based on real critic and audience ratings from Letterboxd, IMDb, and TMDB.</dd>
-
-                <dt>How do I create or join a league?</dt>
-                <dd>After signing up, tap "Create League" to start a new league and invite friends via a share link, or tap "Join League" and enter an invite code.</dd>
-
-                <dt>How is scoring calculated?</dt>
-                <dd>Movie scores are a weighted average of Letterboxd (60%), IMDb (20%), and TMDB (20%) ratings, normalized to a 100-point scale.</dd>
-
-                <dt>How do I report a bug?</dt>
-                <dd>Email us at <a href="mailto:cinedraftapp@gmail.com">cinedraftapp@gmail.com</a> with a description of the issue and any screenshots if possible.</dd>
-
-                <dt>Is CineDraft free?</dt>
-                <dd>Yes! CineDraft is free to download and play.</dd>
-            </dl>
+            <p>Need help? Choose a category below to email us, or send a general message.</p>
+            <div class="contact-grid">
+                <a class="contact-btn" href="mailto:cinedraftapp@gmail.com?subject=%5BCineDraft%5D%20Bug%20Report">
+                    <span>🐛</span>
+                    <div>Bug Report<small>Something isn't working</small></div>
+                </a>
+                <a class="contact-btn" href="mailto:cinedraftapp@gmail.com?subject=%5BCineDraft%5D%20Feature%20Request">
+                    <span>💡</span>
+                    <div>Feature Request<small>Share an idea</small></div>
+                </a>
+                <a class="contact-btn" href="mailto:cinedraftapp@gmail.com?subject=%5BCineDraft%5D%20Account%20Issue">
+                    <span>👤</span>
+                    <div>Account Issue<small>Login or account help</small></div>
+                </a>
+                <a class="contact-btn" href="mailto:cinedraftapp@gmail.com?subject=%5BCineDraft%5D%20Technical%20Support">
+                    <span>🔧</span>
+                    <div>Technical Support<small>App performance issues</small></div>
+                </a>
+            </div>
+            <br>
+            <a class="contact-primary" href="mailto:cinedraftapp@gmail.com?subject=%5BCineDraft%5D%20General%20Question">Email Support</a>
         </div>
 
-        <footer>&copy; 2026 Cody Wittlinger. All rights reserved.</footer>
+        <h2>Frequently Asked Questions</h2>
+
+        <div id="faq-container">
+            <div class="faq-category" onclick="toggleCategory(this)">
+                <button class="faq-category-btn">Getting Started <span class="arrow">›</span></button>
+                <div class="faq-items">
+                    <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)"><button class="faq-q">What is CineDraft? <span class="arrow">›</span></button><div class="faq-a">CineDraft is a fantasy movie league where you draft films and compete based on real user ratings from Letterboxd, IMDb, and TMDB. Create or join a league, draft movies with friends, make trades, and see who has the best movie taste!</div></div>
+                    <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)"><button class="faq-q">How do I create a league? <span class="arrow">›</span></button><div class="faq-a">Tap the '+' button on the Home screen, choose 'Create League', enter your league details, and customize your settings. You'll receive an invite code to share with friends.</div></div>
+                    <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)"><button class="faq-q">How do I join a league? <span class="arrow">›</span></button><div class="faq-a">Tap 'Join League' on the Home screen and enter the invite code provided by your league commissioner.</div></div>
+                    <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)"><button class="faq-q">Can I join multiple leagues? <span class="arrow">›</span></button><div class="faq-a">Yes! You can join as many leagues as you want and switch between them using the League Switcher in the top navigation.</div></div>
+                    <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)"><button class="faq-q">How does the league season work? <span class="arrow">›</span></button><div class="faq-a">CineDraft runs on a full calendar year (Jan 1 – Dec 31). Each season has 6 bi-monthly draft windows, so your league drafts multiple times throughout the year.</div></div>
+                    <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)"><button class="faq-q">Does CineDraft have widgets? <span class="arrow">›</span></button><div class="faq-a">Yes! CineDraft offers Home Screen widgets including Trending Movies, Watchlist, and Unread Messages. Add them from your Home Screen by long-pressing and tapping the '+' button.</div></div>
+                    <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)"><button class="faq-q">Is CineDraft free? <span class="arrow">›</span></button><div class="faq-a">Yes! CineDraft is free to download and play.</div></div>
+                </div>
+            </div>
+
+            <div class="faq-category" onclick="toggleCategory(this)">
+                <button class="faq-category-btn">Drafting <span class="arrow">›</span></button>
+                <div class="faq-items">
+                    <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)"><button class="faq-q">How do I start a draft? <span class="arrow">›</span></button><div class="faq-a">Only the league commissioner can start a draft. Go to the Draft tab and tap 'Start Draft' when all members are ready.</div></div>
+                    <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)"><button class="faq-q">How is the draft order determined? <span class="arrow">›</span></button><div class="faq-a">The draft order is randomly shuffled before each draft and follows a snake format — the pick order reverses every round so the last picker in one round picks first in the next.</div></div>
+                    <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)"><button class="faq-q">What happens if I miss my turn? <span class="arrow">›</span></button><div class="faq-a">If auto-pick is enabled in your league settings, the highest-rated available movie will be automatically selected for you.</div></div>
+                    <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)"><button class="faq-q">How do I prepare for a draft? <span class="arrow">›</span></button><div class="faq-a">Browse upcoming releases, check release dates, and build your draft queue ahead of time. Your queue lets you rank the movies you want so you're ready when your pick comes up.</div></div>
+                    <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)"><button class="faq-q">What makes a good draft pick? <span class="arrow">›</span></button><div class="faq-a">Look for movies with strong critical potential, popular directors, and favorable release dates. Balance blockbusters with critically acclaimed films for the best results.</div></div>
+                </div>
+            </div>
+
+            <div class="faq-category" onclick="toggleCategory(this)">
+                <button class="faq-category-btn">League Management <span class="arrow">›</span></button>
+                <div class="faq-items">
+                    <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)"><button class="faq-q">How do I invite new members? <span class="arrow">›</span></button><div class="faq-a">Go to League Settings and share your league's invite code. Members can also share the code if 'Members Can Invite' is enabled.</div></div>
+                    <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)"><button class="faq-q">Can I transfer commissioner role? <span class="arrow">›</span></button><div class="faq-a">Yes! Go to League Settings, tap 'Transfer' next to the Commissioner section, and select a new commissioner from your league members.</div></div>
+                    <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)"><button class="faq-q">What is a bonus proposal? <span class="arrow">›</span></button><div class="faq-a">Commissioners can create bonus proposals for the league to vote on, such as bonus points for specific achievements. Members vote on whether to approve these custom scoring bonuses.</div></div>
+                </div>
+            </div>
+
+            <div class="faq-category" onclick="toggleCategory(this)">
+                <button class="faq-category-btn">Scoring &amp; Points <span class="arrow">›</span></button>
+                <div class="faq-items">
+                    <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)"><button class="faq-q">How is scoring calculated? <span class="arrow">›</span></button><div class="faq-a">Your CineDraft score is based on real user ratings from three platforms: Letterboxd (60%), IMDb (20%), and TMDB (20%). As people on those sites rate a movie, the weighted average updates your score automatically.</div></div>
+                    <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)"><button class="faq-q">Where do the ratings come from? <span class="arrow">›</span></button><div class="faq-a">CineDraft scores are driven by real user ratings from Letterboxd (film enthusiasts), IMDb (general audiences), and TMDB (community ratings). Rotten Tomatoes and Metacritic scores are also displayed for reference, but they don't affect your CineDraft score.</div></div>
+                    <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)"><button class="faq-q">How do awards affect scoring? <span class="arrow">›</span></button><div class="faq-a">Major awards like Oscars, Golden Globes, and BAFTAs can provide bonus points. The exact bonuses are configured in your league's scoring system.</div></div>
+                    <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)"><button class="faq-q">Can I see a breakdown of my score? <span class="arrow">›</span></button><div class="faq-a">Yes! Tap on any movie in your roster to see a detailed score breakdown showing the individual ratings from each source and how they contribute to your total score.</div></div>
+                </div>
+            </div>
+
+            <div class="faq-category" onclick="toggleCategory(this)">
+                <button class="faq-category-btn">Trading <span class="arrow">›</span></button>
+                <div class="faq-items">
+                    <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)"><button class="faq-q">How do I propose a trade? <span class="arrow">›</span></button><div class="faq-a">Go to the Trades tab, tap 'Propose Trade', select the movies you're offering and requesting, then send the proposal to another league member.</div></div>
+                    <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)"><button class="faq-q">Can I counter-offer a trade? <span class="arrow">›</span></button><div class="faq-a">Yes! When you receive a trade proposal, you can send a counter-offer with different terms instead of simply accepting or rejecting it.</div></div>
+                    <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)"><button class="faq-q">What's the trade deadline? <span class="arrow">›</span></button><div class="faq-a">The trade deadline is set by your league commissioner. After the deadline, no new trades can be proposed or accepted.</div></div>
+                </div>
+            </div>
+
+            <div class="faq-category" onclick="toggleCategory(this)">
+                <button class="faq-category-btn">Messages &amp; Chat <span class="arrow">›</span></button>
+                <div class="faq-items">
+                    <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)"><button class="faq-q">How do I send a direct message? <span class="arrow">›</span></button><div class="faq-a">Tap on any member's profile and select 'Send Message' to start a private conversation. You can also start a new message from the Messages tab.</div></div>
+                    <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)"><button class="faq-q">How do I react to a message? <span class="arrow">›</span></button><div class="faq-a">Tap and hold any message to add an emoji reaction. Quick reactions include thumbs up, heart, laughing, fire, surprised, and thumbs down.</div></div>
+                    <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)"><button class="faq-q">Can I control who messages me? <span class="arrow">›</span></button><div class="faq-a">Yes! Go to Settings > Social > Privacy Controls to set who can send you direct messages.</div></div>
+                </div>
+            </div>
+
+            <div class="faq-category" onclick="toggleCategory(this)">
+                <button class="faq-category-btn">Reviews &amp; Ratings <span class="arrow">›</span></button>
+                <div class="faq-items">
+                    <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)"><button class="faq-q">How do I rate a movie? <span class="arrow">›</span></button><div class="faq-a">Open any movie's detail page and tap the star rating. You can rate from 0.5 to 5 stars in half-star increments.</div></div>
+                    <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)"><button class="faq-q">What is the Journal? <span class="arrow">›</span></button><div class="faq-a">The Journal is your personal movie diary. Log films you've watched with the date, your rating, and notes. It's organized by month so you can look back at your viewing history.</div></div>
+                    <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)"><button class="faq-q">What are Thoughts? <span class="arrow">›</span></button><div class="faq-a">Thoughts are short takes you can share about movies or people. Each Thought has a heat score based on engagement — the more likes and replies it gets, the higher the heat.</div></div>
+                    <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)"><button class="faq-q">Can I import data from other platforms? <span class="arrow">›</span></button><div class="faq-a">Yes! Go to Settings > Connections to link your TMDB account or import data from Letterboxd and IMDb via CSV export.</div></div>
+                </div>
+            </div>
+
+            <div class="faq-category" onclick="toggleCategory(this)">
+                <button class="faq-category-btn">Movie Lists <span class="arrow">›</span></button>
+                <div class="faq-items">
+                    <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)"><button class="faq-q">How do I create a list? <span class="arrow">›</span></button><div class="faq-a">Open Lists from the Library section on the Home tab and tap 'Create List'. Give it a name, description, and choose whether it should be ranked or unranked.</div></div>
+                    <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)"><button class="faq-q">Can I share my lists? <span class="arrow">›</span></button><div class="faq-a">Yes! Open any list and tap the share button. You can share to your activity feed, send directly to a friend, copy a link, generate a QR code, or use the system share sheet.</div></div>
+                </div>
+            </div>
+
+            <div class="faq-category" onclick="toggleCategory(this)">
+                <button class="faq-category-btn">Award Show Pools <span class="arrow">›</span></button>
+                <div class="faq-items">
+                    <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)"><button class="faq-q">What are Award Show Pools? <span class="arrow">›</span></button><div class="faq-a">Award Show Pools let you compete with friends by predicting winners at major ceremonies like the Oscars. Create or join a pool, make your predictions, and see who's most accurate!</div></div>
+                    <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)"><button class="faq-q">When are ballots sealed? <span class="arrow">›</span></button><div class="faq-a">Predictions lock when the ceremony begins. After that, you can see everyone's predictions and watch the leaderboard update as winners are announced.</div></div>
+                </div>
+            </div>
+
+            <div class="faq-category" onclick="toggleCategory(this)">
+                <button class="faq-category-btn">Troubleshooting <span class="arrow">›</span></button>
+                <div class="faq-items">
+                    <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)"><button class="faq-q">The app won't open or keeps crashing <span class="arrow">›</span></button><div class="faq-a">Try force-closing the app and reopening it. If that doesn't work, restart your device. Make sure you're running the latest version from the App Store.</div></div>
+                    <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)"><button class="faq-q">My points aren't updating <span class="arrow">›</span></button><div class="faq-a">Scores update as new ratings become available from our data sources. Make sure you have a stable internet connection. Try pulling down to refresh on the Standings screen.</div></div>
+                    <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)"><button class="faq-q">How do I reset my password? <span class="arrow">›</span></button><div class="faq-a">On the login screen, tap 'Forgot Password' and follow the instructions sent to your email.</div></div>
+                    <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)"><button class="faq-q">I'm not receiving notifications <span class="arrow">›</span></button><div class="faq-a">Check Settings > Notifications to ensure notifications are enabled. Also verify that CineDraft has notification permissions in your device's Settings app.</div></div>
+                    <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)"><button class="faq-q">How do I delete my account? <span class="arrow">›</span></button><div class="faq-a">Go to Settings > Account &amp; Security > Delete Account. This action is permanent and will remove all your data, including league history and reviews.</div></div>
+                    <div class="faq-item" onclick="event.stopPropagation(); toggleFaq(this)"><button class="faq-q">Can I export my data? <span class="arrow">›</span></button><div class="faq-a">Yes! Go to Settings > About > Export Data to download a JSON file containing your profile, reviews, ratings, watchlist, lists, and league memberships.</div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="links">
+            <a href="privacy.html">Privacy Policy</a>
+        </div>
+
+        <footer>&copy; 2026 Quiet Craft. All rights reserved.</footer>
     </div>
+
+    <script>
+        function toggleCategory(el) { el.classList.toggle('open'); }
+        function toggleFaq(el) { el.classList.toggle('open'); }
+    </script>
 </body>
 </html>
